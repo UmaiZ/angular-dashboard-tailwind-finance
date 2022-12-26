@@ -1,0 +1,170 @@
+<div class=" flex lg:flex-row flex-col">
+    <div class="sm:w-full lg:w-4/6 ">
+        <div class="flex flex-row justify-between">
+            <div>
+                <div class="font-bold text-2xl">Dashboard</div>
+                <div class="text-xs font-medium text-gray-500">Payment Updates</div>
+            </div>
+
+            <div class=" text-gray-600">
+                <input type="search" name="serch" placeholder="Search"
+                    class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
+
+            </div>
+        </div>
+        <div class="grid grid-cols-4 gap-4 pt-7">
+            <div class="bg-white rounded-xl  p-4 shadow-md" *ngFor="let x of cardData">
+                <div class="flex justify-between pb-1">
+                    <img src="{{x.image}}" class="w-6 h-6">
+                </div>
+                <div class="text-sm font-medium text-gray-500  pb-1 w-32">{{x.name}}</div>
+                <div class="font-bold text-lg">{{x.ammount}}</div>
+            </div>
+
+        </div>
+        <div class="mt-7 bg-white rounded-2xl pt-4 pl-4 shadow-md">
+            <div>
+                <div class="font-bold text-2xl">History</div>
+                <div class="text-xs font-medium text-gray-500">Last 6 months</div>
+            </div>
+            <div class="pt-4">
+                <table class="table-auto w-full ">
+
+                    <tbody>
+                        <tr class="hover:bg-white align-middle" *ngFor="let x of historyData">
+                            <td class="pb-2 dtext-sm text-center">
+                                <img src="{{x.image}}" alt="" class="w-10">
+                            </td>
+                            <td class="text-sm text-center">{{x.name}}</td>
+
+                            <td class="text-sm text-center">{{x.type}}</td>
+                            <td class="text-sm text-center">{{x.time}}</td>
+                            <td class="text-sm text-center">{{x.ammount}}</td>
+                            <td class="text-sm text-center">
+                                <span class="bg-green-200 px-4 py-2 rounded-2xl text-green-900"
+                                    *ngIf="x.status == 'completed'">
+                                    Completed
+                                </span>
+                                <span class="bg-red-200 px-4 py-2 rounded-2xl text-red-900"
+                                    *ngIf="x.status == 'pending'">
+                                    Pending
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="lg:ml-6 lg:mt-0 mt-4 bg-white rounded-2xl lg:w-1/3 shadow-md">
+        <div class="flex justify-center pt-6">
+            <div class="flex flex-row w-32 justify-between">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                    </svg>
+                </div>
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                </div>
+                <div>
+                    <img src="assets/avatars/1.png" class="w-8 h-8">
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-center pt-4">
+            <div
+                class="bg-gradient-to-b  from-gray-800 via-from-gray-900 to-black w-4/5 float justify-center p-4 rounded-2xl shadow-2xl">
+                <div class="text-white pt-2">
+                    <img src="assets/icons/chip.png" class="w-8">
+
+                </div>
+                <div class="text-white pt-2">
+                    4562 1122 4596 1231
+                </div>
+
+                <div class="flex justify-between items-end pt-5">
+                    <div>
+                        <div class="text-gray-500 text-xs">
+                            Card Holder
+                        </div>
+                        <div class="text-white text-xs pt-1">
+                            Umaiz
+                        </div>
+                    </div>
+                    <div>
+                        <div class="text-gray-500">
+                            <img src="assets/icons/mastercard.png" class="w-8">
+                        </div>
+                        <div class="text-white text-xs pt-1">
+                            Mastercard
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="pt-6 px-5">
+            <div>
+                <div class="font-bold text-xl">Recent Activites</div>
+                <div class="text-xs font-medium text-gray-500">02 Mar 2023</div>
+            </div>
+            <div class="py-3">
+                <div class="flex flex-row justify-between align-middle pt-3" *ngFor="let x of recentData">
+                    <div class="flex">
+                        <div class=" text-white bg-gray-200 p-2 rounded-xl w-10">
+                            <img src="{{x.image}}">
+                        </div>
+                        <div class="pl-4">
+                            <div class="text-sm font-medium ">
+                                {{x.name}}
+                            </div>
+                            <div class="text-xs text-gray-500">{{x.status}}</div>
+
+                        </div>
+                    </div>
+                    <div class="text-sm font-bold ">
+                        {{x.ammount}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="px-5">
+            <div>
+                <div class="font-bold text-xl">Upcoming Payments</div>
+                <div class="text-xs font-medium text-gray-500">02 Apr 2023</div>
+            </div>
+            <div class="pt-2 py-4">
+                <div class="flex flex-row justify-between align-middle pt-3" *ngFor="let x of upcomingData">
+                    <div class="flex">
+                        <div class=" text-white bg-gray-200 p-2 rounded-xl w-10">
+                            <img src="{{x.image}}">
+                        </div>
+                        <div class="pl-4">
+                            <div class="text-sm font-medium ">
+                                {{x.name}}
+                            </div>
+                            <div class="text-xs text-gray-500">{{x.status}}</div>
+
+                        </div>
+                    </div>
+                    <div class="text-sm font-bold ">
+                        {{x.ammount}}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
